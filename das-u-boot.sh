@@ -21,8 +21,8 @@ fi
 		git clone --depth 1 https://github.com/rockchip-linux/rkbin
 		
 #        git clone --depth 1 https://source.denx.de/u-boot/custodians/u-boot-rockchip.git -b u-boot-rockchip-20251101 u-boot
-		DDR=`ls rkbin/bin/rk35/rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v*.bin`
-		BL31=`ls rkbin/bin/rk35/rk3588_bl31*.elf`
+		DDR=`ls rkbin/bin/rk35/rk3568_ddr_1560MHz_v*.bin`
+		BL31=`ls rkbin/bin/rk35/rk3568_bl31*.elf
 	export BL31=`pwd`/$BL31
 	export ROCKCHIP_TPL=`pwd`/$DDR
 echo ""
@@ -42,7 +42,7 @@ echo ""
 			exit 1
 		fi
 
-	echo 'CONFIG_SYS_SOC="rk3588"' >> configs/$1
+	echo 'CONFIG_SYS_SOC="rk3568"' >> configs/$1
 sed -i 's/#ifndef CONFIG_XPL_BUILD/#ifndef CONFIG_XPL_BUILD\n\n# define BOOT_TARGET_DEVICES_SCSI(func)	func(SCSI, scsi, 0, 0, 0) func(SCSI, scsi, 0, 0, 1)\n\n# define BOOT_TARGET_DEVICES_NVME(func)  func(NVME, nvme, 0, 0, 0) func(NVME, nvme, 0, 0, 1)\n\n/' include/configs/rockchip-common.h
 
 		make clean $1
