@@ -22,7 +22,7 @@ fi
 		
 #        git clone --depth 1 https://source.denx.de/u-boot/custodians/u-boot-rockchip.git -b u-boot-rockchip-20251101 u-boot
 		DDR=`ls rkbin/bin/rk35/rk3568_ddr_1560MHz_v*.bin`
-		BL31=`ls rkbin/bin/rk35/rk3568_bl31*.elf`
+		BL31=`ls rkbin/bin/rk35/rk3568_bl31_v*.elf`
 	export BL31=`pwd`/$BL31
 	export ROCKCHIP_TPL=`pwd`/$DDR
 echo ""
