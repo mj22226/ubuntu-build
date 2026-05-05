@@ -23,8 +23,8 @@ rootfs:
     names:
 #      - cloud-image
 #      - server
-      - minimal
-#      - standard
+#      - minimal
+      - standard
 customization:
   extra-packages:
     - name: "u-boot-tools"
@@ -48,6 +48,7 @@ customization:
     - name: snapd
     - name: core24
     - name: mesa-2404
+    - name: chromium-browser
 #    - name: bare
 #    - name: core22
 #    - name: core24
