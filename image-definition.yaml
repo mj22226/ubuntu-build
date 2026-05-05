@@ -48,11 +48,10 @@ customization:
     - name: snapd
     - name: core24
     - name: mesa-2404
-    - name: chromium-browser
 #    - name: bare
 #    - name: core22
 #    - name: core24
-    - name: firefox
+#    - name: firefox
 #    - name: gnome-46-2404
 #    - name: gtk-common-themes
 #    - name: thunderbird
