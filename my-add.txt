@@ -231,7 +231,7 @@ CONFIG_MEDIA_SUPPORT=n
 CONFIG_DVB_NET=n
 
 ##### if need IPV6 then change y #####
-CONFIG_IPV6=n
+CONFIG_IPV6=y
 
 #### ????? #####
 CONFIG_NET_IPIP=n
@@ -249,19 +249,19 @@ CONFIG_VFIO=n
 CONFIG_CAN=n
 
 ##### if need BT then change y ####
-CONFIG_BT=n
+CONFIG_BT=y
 
 ##### if need WIFI then change y ####
-CONFIG_WIRELESS=n
-CONFIG_CFG80211=n
-CONFIG_MAC80211=n
+CONFIG_WIRELESS=y
+CONFIG_CFG80211=y
+CONFIG_MAC80211=y
 CONFIG_RFKILL=m
-CONFIG_WAN=n
-CONFIG_WWAN=n
-CONFIG_WLAN=n
+CONFIG_WAN=m
+CONFIG_WWAN=m
+CONFIG_WLAN=m
 
 ##### if need Netfilter  then change y ####
-CONFIG_NETFILTER=n
+CONFIG_NETFILTER=y
 
 
 #### HD-Audio ####
