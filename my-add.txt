@@ -258,7 +258,7 @@ CONFIG_MAC80211=y
 CONFIG_RFKILL=m
 CONFIG_WAN=m
 CONFIG_WWAN=m
-CONFIG_WLAN=m
+CONFIG_WLAN=y
 
 ##### if need Netfilter  then change y ####
 CONFIG_NETFILTER=y
