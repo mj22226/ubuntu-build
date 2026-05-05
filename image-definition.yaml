@@ -23,8 +23,8 @@ rootfs:
     names:
 #      - cloud-image
 #      - server
-#      - minimal
-      - standard
+      - minimal
+#      - standard
 customization:
   extra-packages:
     - name: "u-boot-tools"
@@ -52,7 +52,7 @@ customization:
 #    - name: bare
 #    - name: core22
 #    - name: core24
-#    - name: firefox
+    - name: firefox
 #    - name: gnome-46-2404
 #    - name: gtk-common-themes
 #    - name: thunderbird
