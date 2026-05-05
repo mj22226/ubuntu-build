@@ -51,7 +51,7 @@ customization:
 #    - name: bare
 #    - name: core22
 #    - name: core24
-#    - name: firefox
+    - name: firefox
 #    - name: gnome-46-2404
 #    - name: gtk-common-themes
 #    - name: thunderbird
