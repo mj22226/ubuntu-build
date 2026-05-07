@@ -48,6 +48,7 @@ sed -i 's/#ifndef CONFIG_XPL_BUILD/#ifndef CONFIG_XPL_BUILD\n\n# define BOOT_TAR
 		make clean $1
 		make -j8
 		cp u-boot-rockchip.bin ../..
+		cp u-boot-rockchip-spi.bin ../..
 	echo "dd if=u-boot-rockchip.bin of=/dev/sdX seek=1 bs=32k conv=fsync"
 	cd ../..
 echo "DISK usage"

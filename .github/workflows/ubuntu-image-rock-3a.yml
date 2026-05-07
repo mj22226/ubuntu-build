@@ -1,15 +1,10 @@
-# This is a basic workflow to help you get started with Actions
-
 name: ubuntu-image-rock-3a
 on: workflow_dispatch
-#workflow_dispatch
-#[push]
 jobs:
   command:
     name: Use Linux commands
     runs-on: ubuntu-24.04-arm
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@main
 
@@ -41,20 +36,19 @@ jobs:
         id: kernel
         run: cat kernel_version >> $GITHUB_OUTPUT
         
-# 旧: upload-artifact のステップをコメントアウトまたは削除し、以下を追加
       - name: Create Release and Upload
         uses: softprops/action-gh-release@master
         with:
-          # 実行するたびにユニークなタグ名（例: build-1, build-2...）を付けます
           tag_name: build-${{ github.run_number }}
-          name: "Radxa Rock 3A Disk Image Build ${{ github.run_number }}"
+          name: "Radxa Rock 3A ${{ github.run_number }}"
           body: |
-            Radxa Rock 3A 自作ディスクイメージ
-            ビルド日時: ${{ steps.date.outputs.now }}
-            ベースカーネル: ${{ steps.kernel.outputs.kernel_version }}
+            Radxa Rock 3A Custom Ubuntu Image
+            Build Date: ${{ steps.date.outputs.now }}
+            Kernel Version: ${{ steps.kernel.outputs.kernel_version }}
           draft: false
           prerelease: false
-          # ここに圧縮済みファイルのパスを指定します
-          files: ./Ubuntu-*img.xz
+          files: |
+             ./Ubuntu-*img.xz
+             ./u-boot-*.bin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
