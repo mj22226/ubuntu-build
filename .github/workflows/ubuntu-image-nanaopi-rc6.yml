@@ -58,5 +58,6 @@ jobs:
           files: |
              ./Ubuntu-*img.xz
              ./u-boot-*.bin
+             ./*.deb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
