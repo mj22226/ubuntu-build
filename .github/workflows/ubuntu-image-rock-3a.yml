@@ -39,7 +39,7 @@ jobs:
       - name: Create Release and Upload
         uses: softprops/action-gh-release@master
         with:
-          tag_name: build-${{ github.run_number }}
+          tag_name: rock3a-${{ github.run_number }}
           name: "Radxa Rock 3A ${{ github.run_number }}"
           body: |
             Radxa Rock 3A Custom Ubuntu Image
@@ -50,5 +50,6 @@ jobs:
           files: |
              ./Ubuntu-*img.xz
              ./u-boot-*.bin
+             ./*.deb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
