@@ -1,0 +1,55 @@
+name: ubuntu-image-rock-pi-4b
+on: workflow_dispatch
+jobs:
+  command:
+    name: Use Linux commands
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: u-boot
+        run: /bin/bash  ./das-u-boot.sh rock-pi-4-rk3399_defconfig 07
+
+      - name: kernel
+        run: /bin/bash ./build-kernel.sh arm64 2>&1|tee log1
+        
+      - name: rootfs
+        run: |
+            ls
+            chmod +x ubuntu-image.sh
+            sudo  ./ubuntu-image.sh
+
+      - name: disk image
+        run:  |
+            chmod +x disk_image.sh
+            sudo  ./disk_image.sh arm64 rock-pi-4b rk3399-rock-pi-4b
+            echo "============================"
+            ls -l
+            echo "============================="
+
+      - name: Get current date
+        id: date
+        run: echo "now=$(date +'%Y-%m-%d %H:%M')" >> $GITHUB_OUTPUT
+
+      - name: Get kernel version
+        id: kernel
+        run: cat kernel_version >> $GITHUB_OUTPUT
+        
+      - name: Create Release and Upload
+        uses: softprops/action-gh-release@master
+        with:
+          tag_name: rock-pi-4-${{ github.run_number }}
+          name: "Radxa Rock pi 4B Image Build ${{ github.run_number }}"
+          body: |
+            Radxa Rock Pi 4B Custom Image
+            Build Date: ${{ steps.date.outputs.now }}
+            Kernel Version: ${{ steps.kernel.outputs.kernel_version }}
+          draft: false
+          prerelease: false
+          files: |
+             ./Ubuntu-*img.xz
+             ./u-boot-*.bin
+             ./*.deb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
