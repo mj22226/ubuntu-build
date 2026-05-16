@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: u-boot
-        run: /bin/bash  ./das-u-boot.sh rock-3a-rk3568_defconfig 07
+        run: /bin/bash  ./das-u-boot.sh rock-3a-rk3568_defconfig
 
       - name: kernel
         run: /bin/bash ./build-kernel.sh arm64 2>&1|tee log1
