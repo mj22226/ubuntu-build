@@ -5,6 +5,17 @@ jobs:
     name: Use Linux commands
     runs-on: ubuntu-24.04-arm
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+              root-reserve-mb: 512
+              swap-size-mb: 1024
+              remove-dotnet: 'true'
+              overprovision-lvm: 'true'
+              remove-android: 'true'
+              remove-haskell: 'true'
+              remove-codeql: 'true'
+              remove-docker-images: 'true'
       - name: Checkout
         uses: actions/checkout@main
 
@@ -39,7 +50,7 @@ jobs:
       - name: Create Release and Upload
         uses: softprops/action-gh-release@master
         with:
-          tag_name: rock3a-${{ github.run_number }}
+          tag_name: rock3a-dev-${{ github.run_number }}
           name: "Radxa Rock 3A ${{ github.run_number }}"
           body: |
             Radxa Rock 3A Custom Ubuntu Image
