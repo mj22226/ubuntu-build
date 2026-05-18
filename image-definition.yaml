@@ -44,6 +44,8 @@ customization:
     - name: "ubiquity-slideshow-ubuntu"
     - name: "squashfs-tools"
     - name: "snapd"
+    - name: "snap-store"
+    - name: "chromium"
     - name: "apparmor"
     - name: "apparmor-utils"
     - name: "apparmor-profiles"
