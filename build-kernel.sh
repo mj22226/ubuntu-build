@@ -11,11 +11,6 @@ fi
 linux_dir=$1
 
 rm -rf $linux_dir && mkdir $linux_dir
-mem_size=`free --giga|grep Mem|awk '{print $2}'`
-if [ $mem_size -gt 8 ]; then
-	sudo mount -t tmpfs -o size=8G tmpfs $linux_dir
-fi
-
 cd $linux_dir
 git clone --depth 1 https://github.com/mj22226/linux.git -b linux-7.1
 
