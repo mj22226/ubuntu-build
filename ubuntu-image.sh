@@ -11,8 +11,6 @@ export LANG=C
 		 mount -t tmpfs -o size=13G tmpfs build
 	fi
 
-	 apt-get update
-	 apt-get -y install git snapd qemu-user-static ubuntu-dev-tools
 	 snap install --classic ubuntu-image
 #	 snap install --channel=latest/edge --classic ubuntu-image
 	 ubuntu-image --debug --workdir build classic image-definition.yaml
@@ -58,7 +56,7 @@ teardown_mountpoint() {
 	setup_mountpoint build/chroot
 	 mkdir build/chroot/kernel
 	 cp *.deb build/chroot/kernel
-	  systemctl stop apparmor
+	#systemctl stop apparmor
 	 chroot build/chroot /setup-script.sh
 	teardown_mountpoint build/chroot
 	 rm build/chroot/setup-script.sh
