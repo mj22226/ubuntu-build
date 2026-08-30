@@ -12,7 +12,7 @@ linux_dir=$1
 
 rm -rf $linux_dir && mkdir $linux_dir
 cd $linux_dir
-git clone --depth 1 https://github.com/mj22226/linux.git -b linux-7.2
+git clone --depth 1 https://github.com/mj22226/linux.git -b linux-7.3
 
 cd linux
 make defconfig
